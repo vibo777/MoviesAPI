@@ -1,0 +1,24 @@
+{
+  "name": "moviesapi",
+  "version": "1.0.0",
+  "description": "An API for movies with made in express using mongo as database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vibo777/MoviesAPI.git"
+  },
+  "author": "Vaibhav Bunde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vibo777/MoviesAPI/issues"
+  },
+  "homepage": "https://github.com/vibo777/MoviesAPI#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.13"
+  }
+}
