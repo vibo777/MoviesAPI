@@ -40,5 +40,67 @@ app.post("/movies",(req,res)=>{
 })
 app.listen(3000);
 
+// to fetch all the movies
+app.get("/movies",(req,res)=>{
 
+    movieModel.find()
+    .then((movies)=>{
+        res.send(movies);
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.send({message:"Some problem while fetching all movies"})
+    })
 
+})
+
+// to fetch a single movie with id 
+app.get("/movies/:id",(req,res)=>{
+  
+    let id = req.params.id;
+
+    movieModel.findOne({_id:id})
+    .then((movie)=>{
+        res.send(movie);
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.send({message:"Some problem while fetching movie"})
+    })
+
+})
+
+// to delete a movie 
+
+app.delete("/movies/:id",(req,res)=>{
+  
+    let id = req.params.id;
+
+    movieModel.deleteOne({_id:id})
+    .then((movie)=>{
+        res.send({message:"Movie deleted"});
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.send("Some problem while fetching movie");
+    })
+
+})
+
+// to update the movie 
+
+app.put("/movies/:id",(req,res)=>{
+  
+    let id = req.params.id;
+    let dataToUpdate=req.body;
+
+    movieModel.updateOne({_id:id},dataToUpdate)
+    .then(()=>{
+        res.send({message:"Movie Updated"});
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.send("Some problem while updating the movie");
+    })
+
+})
